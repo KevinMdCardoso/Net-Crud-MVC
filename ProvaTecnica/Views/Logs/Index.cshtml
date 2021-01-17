@@ -1,0 +1,35 @@
+﻿@model IEnumerable<ProvaTecnica.Models.Log>
+
+@{
+    ViewBag.Title = "Registro de Logs";
+}
+
+<h2>Registro de Logs</h2>
+
+<table class="table table-striped">
+    <tr class="thead-dark">
+        <th>
+            @Html.DisplayNameFor(model => model.Momento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Acao)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Momento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Acao)
+            </td>
+            <td>
+                @Html.ActionLink("Detalhes", "Details", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
